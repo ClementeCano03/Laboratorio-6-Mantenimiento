@@ -16,7 +16,6 @@ import org.apache.http.util.EntityUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 public class ImagenAPIPredictor {
     //Class that is responsible for creating API call to external API service which will predict imagage.
     //Call in this version is based on the path of the image, but i checked if it works from our spring project
