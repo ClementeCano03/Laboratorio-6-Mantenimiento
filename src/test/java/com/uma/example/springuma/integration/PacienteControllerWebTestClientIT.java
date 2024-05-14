@@ -79,7 +79,8 @@ class PacienteControllerWebTestClientIT {
             //Comprobamos que el paciente y el medico estan vinculados
         FluxExchangeResult<List> result = client.get().uri("/paciente/medico/1")
             .exchange()
-            .expectStatus().isOk().returnResult(List.class); // comprueba que la reffspuesta es de tipo List
+            .expectStatus().isOk().returnResult(List.class)
+            .ex; // comprueba que la reffspuesta es de tipo List
 
         List pacientesObtained = result.getResponseBody().blockFirst(); // Obtiene el objeto List<Paciente> en concreto
 
