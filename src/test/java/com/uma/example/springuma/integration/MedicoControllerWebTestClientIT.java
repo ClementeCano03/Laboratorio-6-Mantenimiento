@@ -115,7 +115,7 @@ class MedicoControllerWebTestClientIT {
             .exchange()
             .expectStatus().isOk();
             
-        //Verifico que el medico se ha eliminado -> La pagina devuelve ERROR 404
+        //Verifico que el medico se ha eliminado -> La pagina devuelve ERROR 5xx
         client.get().uri("/medico/1")
             .exchange()
             .expectStatus().is5xxServerError();

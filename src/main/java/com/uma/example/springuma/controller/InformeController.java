@@ -32,7 +32,6 @@ public class InformeController {
         return informeService.getInformesImagen(id);
     }
 
-    
     @PostMapping(value = "/informe",     consumes = {MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<?> saveInforme(@RequestBody Informe informe) {
         try{
