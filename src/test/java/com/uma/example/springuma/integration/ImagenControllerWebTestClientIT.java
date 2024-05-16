@@ -1,3 +1,9 @@
+/*
+ * @author1 José Antonio Casado Molina
+ * @author2 Clemente Cano Mengíbar
+ * @author3 Manuel Fuentes Vida
+ */
+
 package com.uma.example.springuma.integration;
 
 import java.util.List;
@@ -69,8 +75,8 @@ class ImagenControllerWebTestClientIT {
     }
 
     @Test
-    @DisplayName("Subir una imagen de un paciente de forma correcta")
-	void saveImage_shouldRespondValidResponse() throws IOException {
+    @DisplayName("Subir una imagen de un paciente debe devolver un mensaje de éxito")
+	void saveImagePost_imageFromAPacient_shouldRespondValidResponse() throws IOException {
         // creacion del medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -108,7 +114,7 @@ class ImagenControllerWebTestClientIT {
 
     @Test
     @DisplayName("Subir la imagen sana nos devuelve que no tiene cáncer")
-	void saveImageHealthy_prediction_returnNoCancer() throws IOException {
+	void saveImageHealthy_getPrediction_returnNoCancer() throws IOException {
         // creacion del medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -150,7 +156,7 @@ class ImagenControllerWebTestClientIT {
 
     @Test
     @DisplayName("Subir la imagen enferma nos devuelve que sí tiene cáncer")
-	void saveImageNotHealthy_prediction_returnCancer() throws Exception {
+	void saveImageNotHealthy_getPrediction_returnCancer() throws Exception {
         // creacion del medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
