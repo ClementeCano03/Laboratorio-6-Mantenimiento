@@ -180,12 +180,12 @@ public class InformeControllerWebTestClientIT {
             .exchange()
             .expectStatus().isNoContent();
 
-        /* 
+        
         //Verifico que el medico se ha eliminado -> La pagina devuelve ERROR 5xx
         client.get().uri("/informe/1")
             .exchange()
             .expectStatus().is5xxServerError();
-        */
+        
     }
     
 }
