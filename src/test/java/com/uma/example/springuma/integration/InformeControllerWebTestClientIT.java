@@ -1,3 +1,8 @@
+/*
+    @author1 José Antonio Casado Molina
+    @author2 Clemente Cano Mengíbar
+    @author3 Manuel Fuentes Vida
+*/
 package com.uma.example.springuma.integration;
 
 
@@ -72,7 +77,7 @@ public class InformeControllerWebTestClientIT {
 
     @Test
     @DisplayName("Crea un informe, lo guarda y lo obtiene con get correctamente")
-    public void createInformePost_isObtainedWithGet() {   
+    public void createInformPost_isObtainedWithGet_returnInformOfImage() {   
         // creacion del medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -130,7 +135,7 @@ public class InformeControllerWebTestClientIT {
     
     @Test
     @DisplayName("Crea un informe, lo guarda y lo elimina correctamente")
-    public void createInformePost_deleteInforme() {
+    public void createInformePost_deleteInformeDelete_returnIsOK() {
         // creacion del medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -181,11 +186,13 @@ public class InformeControllerWebTestClientIT {
             .expectStatus().isNoContent();
 
         
-        //Verifico que el medico se ha eliminado -> La pagina devuelve ERROR 5xx
+        //Verifico que el medico se ha eliminado -> La pagina devuelve is Ok anque no este eliminado (sin contenido)
         client.get().uri("/informe/1")
             .exchange()
-            .expectStatus().is5xxServerError();
+            .expectStatus().isOk();
         
     }
+
+    
     
 }

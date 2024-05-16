@@ -1,3 +1,8 @@
+/*
+    @author1 José Antonio Casado Molina
+    @author2 Clemente Cano Mengíbar
+    @author3 Manuel Fuentes Vida
+*/
 package com.uma.example.springuma.integration;
 
 import java.util.List;
@@ -97,7 +102,7 @@ class PacienteControllerWebTestClientIT {
 
     @Test
     @DisplayName("Creamos un paciente, lo guardamos, se asocia a un médico y obtenemos la lista de pacientes del médico correctamente")
-    public void createPacientPost_asociatedWithMedico_returnListOfPacients(){
+    public void createPacientPost_asociatedWithMedicoGet_returnListOfPacients(){
         // crea un medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -124,7 +129,7 @@ class PacienteControllerWebTestClientIT {
 
     @Test
     @DisplayName("Creamos un paciente, lo guardamos y lo asociamos a un médico previamente guardado. Le cambiamos el médico y comprobamos que se ha cambiado correctamente")
-    public void createPacientPost_changeMedico_returnThePacient(){
+    public void createPacientPost_changeMedicoGet_returnThePacient(){
         // crea un medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -175,7 +180,7 @@ class PacienteControllerWebTestClientIT {
 
     @Test
     @DisplayName("Crea un paciente y lo elimina correctamente")
-    public void createPacientPost_deletePacient(){
+    public void createPacientPost_deletePacientDelete_returnError5xx(){
         // crea un medico
     	client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
