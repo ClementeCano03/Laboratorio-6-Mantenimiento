@@ -26,6 +26,12 @@ import com.uma.example.springuma.model.Medico;
 import jakarta.annotation.PostConstruct;
 import reactor.core.publisher.Mono;
 
+/*
+ * @author1 José Antonio Casado Molina
+ * @author2 Clemente Cano Mengíbar
+ * @author3 Manuel Fuentes Vida 
+ */
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class MedicoControllerWebTestClientIT {
     
@@ -48,7 +54,7 @@ class MedicoControllerWebTestClientIT {
 
     @Test
     @DisplayName("Crea un médico, lo guarda y lo obtiene con get correctamente")
-    public void createMedicoPost_isObtainedWithGet() {
+    public void createMedicoPost_saveMedico_isObtainedWithGet() {
         // crea una medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -69,7 +75,7 @@ class MedicoControllerWebTestClientIT {
 
     @Test
     @DisplayName("Crea un médico, lo modifica y lo obtiene con get correctamente")
-    public void updateMedicoPut_nameChanged_isUpdated() {
+    public void updateMedicoPut_nameChanged_returnMedicoModified() {
         // crea un medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
@@ -124,7 +130,7 @@ class MedicoControllerWebTestClientIT {
 
     @Test
     @DisplayName("Busca un médico por su dni y lo obtiene con get correctamente")
-    public void getMedicoByDNIGet_searchByDni_isObtained(){
+    public void getMedicoByDNIGet_searchByDni_isObtainedWithGet(){
         // crea un medico
         client.post().uri("/medico")
             .body(Mono.just(medico), Medico.class)
